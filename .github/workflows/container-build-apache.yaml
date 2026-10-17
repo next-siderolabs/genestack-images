@@ -37,7 +37,7 @@ env:
 jobs:
   init:
     runs-on:
-      group: self-hosted-gh-runner
+      group: self-hosted-gh-runner-docker
       labels: [self-hosted, Linux, X64]
     outputs:
       apache-mod-wsgi-version: ${{ steps.generate-matrix.outputs.mod_wsgi }}
@@ -56,7 +56,7 @@ jobs:
       matrix:
         apache-mod-wsgi-version: ${{ fromJSON(needs.init.outputs.apache-mod-wsgi-version) }}
     runs-on:
-      group: self-hosted-gh-runner
+      group: self-hosted-gh-runner-docker
       labels: [self-hosted, Linux, X64]
     steps:
       - name: Checkout

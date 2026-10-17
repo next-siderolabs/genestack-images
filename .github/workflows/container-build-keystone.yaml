@@ -54,7 +54,7 @@ env:
 jobs:
   init:
     runs-on:
-      group: self-hosted-gh-runner
+      group: self-hosted-gh-runner-docker
       labels: [self-hosted, Linux, X64]
     outputs:
       openstack-constraints: ${{ steps.generate-matrix.outputs.openstack_constraints }}
@@ -77,7 +77,7 @@ jobs:
         openstack-constraints: ${{ fromJSON(needs.init.outputs.openstack-constraints)}}
         rackspace-plugin-version: ${{ fromJSON(needs.init.outputs.rackspace-plugin-version) }}
     runs-on:
-      group: self-hosted-gh-runner
+      group: self-hosted-gh-runner-docker
       labels: [self-hosted, Linux, X64]
     steps:
       - name: Checkout

@@ -39,7 +39,7 @@ env:
 jobs:
   init:
     runs-on:
-      group: self-hosted-gh-runner
+      group: self-hosted-gh-runner-docker
       labels: [self-hosted, Linux, X64]
     outputs:
       openstack-version: ${{ steps.generate-matrix.outputs.openstack_version }}
@@ -58,7 +58,7 @@ jobs:
       matrix:
         openstack-version: ${{ fromJSON(needs.init.outputs.openstack-version) }}
     runs-on:
-      group: self-hosted-gh-runner
+      group: self-hosted-gh-runner-docker
       labels: [self-hosted, Linux, X64]
     steps:
       - name: Checkout repository

@@ -47,7 +47,7 @@ env:
 jobs:
   init:
     runs-on:
-      group: self-hosted-gh-runner
+      group: self-hosted-gh-runner-docker
       labels: [self-hosted, Linux, X64]
     outputs:
       gnocchi-versions: ${{ steps.generate-matrix.outputs.gnocchi_versions }}
@@ -66,7 +66,7 @@ jobs:
       matrix:
         gnocchi-version: ${{ fromJSON(needs.init.outputs.gnocchi-versions)}}
     runs-on:
-      group: self-hosted-gh-runner
+      group: self-hosted-gh-runner-docker
       labels: [self-hosted, Linux, X64]
     steps:
       - name: Checkout

@@ -33,7 +33,7 @@ env:
 jobs:
   build-collector-and-push:
     runs-on:
-      group: self-hosted-gh-runner
+      group: self-hosted-gh-runner-docker
       labels: [self-hosted, Linux, X64]
 
     steps:

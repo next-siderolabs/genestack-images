@@ -39,7 +39,7 @@ env:
 jobs:
   init:
     runs-on:
-      group: self-hosted-gh-runner
+      group: self-hosted-gh-runner-docker
       labels: [self-hosted, Linux, X64]
     outputs:
       kube-ovn-version: ${{ steps.generate-matrix.outputs.kube_ovn }}
@@ -58,7 +58,7 @@ jobs:
       matrix:
         kube-ovn-version: ${{ fromJSON(needs.init.outputs.kube-ovn-version) }}
     runs-on:
-      group: self-hosted-gh-runner
+      group: self-hosted-gh-runner-docker
       labels: [self-hosted, Linux, X64]
     steps:
       - name: Checkout
